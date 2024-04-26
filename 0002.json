@@ -1,12 +1,16 @@
 {
-	"url":"/",
-	"querys":{
-        "format":"json"
+    "url": "/api/weather/weather",
+    "querys": {
+        "city_name": "{{.response.result.city}}",
+        "pageNo": 1,
+        "pageSize": 20
     },
-	"headers":{},
-	"method":"GET",
-	"body":{
-	  "key1": "val1",
-      "key2": "{{.unixTimestamp}}"
-	}
+    "headers": {
+    },
+    "method": "GET",
+    "body": {
+    },
+    "assert":{
+        "{{.response.code}}":"200"
+    }
 }

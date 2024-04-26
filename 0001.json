@@ -1,12 +1,14 @@
 {
-	"url":"/",
-	"querys":{
-        "format":"json"
+    "url": "/api/common/teladress",
+    "querys": {
+        "mobile": "13512345678"
     },
-	"headers":{},
-	"method":"GET",
-	"body":{
-	  "key1": "val1",
-      "key2": "val2"
-	}
+    "headers": {
+    },
+    "method": "GET",
+    "body": {
+    },
+    "assert":{
+        "{{.response.code}}":"200"
+    }
 }

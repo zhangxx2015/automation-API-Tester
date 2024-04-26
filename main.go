@@ -60,19 +60,19 @@ func main() {
 			result = utils.Delete(vars["baseUrl"].(string)+ri.Url, ri.Querys, ri.Body, ri.Headers)
 			break
 		}
-		log.Print(result)
+		log.Print("response text:", result)
 		response := utils.DictFromString(result)
 		log.Println("\t<<<<")
 		log.Println("\t", utils.ToJsonStringIndent(response, "\t\t\t"))
 		vars["response"] = response
-		log.Println("\t!!!!")
+		log.Println("\tassert")
 		log.Println("\t", utils.ToJsonString(ri.Assert))
 		for k, expectedV := range ri.Assert {
 			kRet, err := utils.RenderStringValue(k, vars)
 			if err != nil {
 				panic(err)
 			}
-			log.Println("\t\t", k, "=", kRet, kRet == expectedV, expectedV)
+			log.Println("\t\t express:", k, "key:", kRet, "val:", expectedV, "pass:", kRet == expectedV)
 			if kRet != expectedV {
 				panic(fmt.Errorf("The result does not meet the expectations [%v != %v]", expectedV, kRet))
 			}
