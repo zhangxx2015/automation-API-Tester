@@ -1,0 +1,12 @@
+{
+	"url":"/",
+	"querys":{
+        "format":"json"
+    },
+	"headers":{},
+	"method":"GET",
+	"body":{
+	  "key1": "val1",
+      "key2": "{{.unixTimestamp}}"
+	}
+}
